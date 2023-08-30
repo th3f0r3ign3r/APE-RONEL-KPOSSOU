@@ -43,42 +43,62 @@
         // fonction de gestion des évenements (appuie de touches)
         $('html').keydown(function(event) {
             var table = $('table');
-            switch (event['key']) {
-                case 'ArrowLeft':
-                    // insérer algo move left
-                    console.log("Left");
-                    break;
-                case 'ArrowUp':
-                    // insérer algo move up
-                    console.log("Up");
-                    break;
-                case 'ArrowRight':
-                    // insérer algo move right
-                    console.log("Right");
-                    break;
-                case 'ArrowDown':
-                    // foreach cols if two same number next to each other, add them and if there is nothing after, move the number to the end
-                    for (var x = 0; x < 4; x++)
-                    {
-                        var last = 0;
-                        for (var y = 0; y < 4; y++)
-                        {
-                            var elem = $('[x="' + x + '"][y="' + y + '"]');
-                            if (elem.attr('nbr') !== "")
-                            {
-                                if (elem.attr('nbr') === last)
-                                {
-                                    elem.attr('nbr', 2 * last);
-                                    elem.text(2 * last);
-                                    last = 0;
-                                }
-                                else
-                                    last = elem.attr('nbr');
-                            }
+            switch (event["key"]) {
+              case "ArrowLeft":
+                /./
+                console.log("Left");
+                break;
+              case "ArrowUp":
+                // foreach cols if two same number next to each other, add them and if there is nothing after, move the number to the top
+                for (var x = 0; x < 4; x++) {
+                    var last = 0;
+                    for (var y = 0; y < 4; y++) {
+                        var elem = $('[x="' + x + '"][y="' + y + '"]');
+                        if (elem.attr("nbr") !== "") {
+                        if (elem.attr("nbr") === last) {
+                            elem.attr("nbr", 2 * last);
+                            elem.text(2 * last);
+                            last = 0;
+                        } else last = elem.attr("nbr");
                         }
                     }
-                    console.log("Down");
-                    break;
+                    }
+                console.log("Up");
+                break;
+              case "ArrowRight":
+                // foreach row if two same number next to each other, add them and if there is nothing after, move the number to the end right
+                for (var y = 0; y < 4; y++) {
+                  var last = 0;
+                  for (var x = 0; x < 4; x++) {
+                    var elem = $('[x="' + x + '"][y="' + y + '"]');
+                    if (elem.attr("nbr") !== "") {
+                      if (elem.attr("nbr") === last) {
+                        elem.attr("nbr", 2 * last);
+                        elem.text(2 * last);
+                        last = 0;
+                      } else last = elem.attr("nbr");
+                    }
+                  }
+                }
+                console.log("Right");
+                break;
+              case "ArrowDown":
+                // foreach cols if two same number next to each other, add them and if there is nothing after, move the number to the end
+                for (var x = 0; x < 4; x++) {
+                  var last = 0;
+                  for (var y = 0; y < 4; y++) {
+                    var elem = $('[x="' + x + '"][y="' + y + '"]');
+                    if (elem.attr("nbr") !== "") {
+                      if (elem.attr("nbr") === last) {
+                        elem.attr("nbr", 2 * last);
+                        elem.text(2 * last);
+                        last = 0;
+                      } else last = elem.attr("nbr");
+                    }
+                  }
+                }
+                console.log("Down");
+                break;
             }
         });
 

@@ -1,0 +1,15 @@
+table {
+    margin: auto;
+    border: solid 8px darkgrey;
+    border-radius: 10px;
+}
+
+td {
+    width: 200px;
+    height: 200px;
+    border: solid 2px darkgrey;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold   ;
+    font-size: 100px;
+}

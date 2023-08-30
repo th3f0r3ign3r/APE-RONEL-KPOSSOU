@@ -45,24 +45,37 @@
             var table = $('table');
             switch (event["key"]) {
               case "ArrowLeft":
-                /./
+                // foreach cols if two same number next to each other, add them and if there is nothing after, move the number to the end left
+                for (var y = 0; y < 4; y++) {
+                  var last = 0;
+                  for (var x = 0; x < 4; x++) {
+                    var elem = $('[x="' + x + '"][y="' + y + '"]');
+                    if (elem.attr("nbr") !== "") {
+                      if (elem.attr("nbr") === last) {
+                        elem.attr("nbr", 2 * last);
+                        elem.text(2 * last);
+                        last = 0;
+                      } else last = elem.attr("nbr");
+                    }
+                  }
+                }
                 console.log("Left");
                 break;
               case "ArrowUp":
                 // foreach cols if two same number next to each other, add them and if there is nothing after, move the number to the top
                 for (var x = 0; x < 4; x++) {
-                    var last = 0;
-                    for (var y = 0; y < 4; y++) {
-                        var elem = $('[x="' + x + '"][y="' + y + '"]');
-                        if (elem.attr("nbr") !== "") {
-                        if (elem.attr("nbr") === last) {
-                            elem.attr("nbr", 2 * last);
-                            elem.text(2 * last);
-                            last = 0;
-                        } else last = elem.attr("nbr");
-                        }
+                  var last = 0;
+                  for (var y = 0; y < 4; y++) {
+                    var elem = $('[x="' + x + '"][y="' + y + '"]');
+                    if (elem.attr("nbr") !== "") {
+                      if (elem.attr("nbr") === last) {
+                        elem.attr("nbr", 2 * last);
+                        elem.text(2 * last);
+                        last = 0;
+                      } else last = elem.attr("nbr");
                     }
-                    }
+                  }
+                }
                 console.log("Up");
                 break;
               case "ArrowRight":
